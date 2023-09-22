@@ -1,0 +1,117 @@
+---
+const { type } = Astro.props;
+---
+
+{
+  type === "h1" ? (
+    <h1>
+      <slot />
+    </h1>
+  ) : type === "h2" ? (
+    <h2>
+      <slot />
+    </h2>
+  ) : type === "h3" ? (
+    <h3>
+      <slot />
+    </h3>
+  ) : type === "h4" ? (
+    <h4>
+      <slot />
+    </h4>
+  ) : type === "h5" ? (
+    <h5>
+      <slot />
+    </h5>
+  ) : type === "h6" ? (
+    <h6>
+      <slot />
+    </h6>
+  ) : type === "overline" ? (
+    <p class="overline">
+      <slot />
+    </p>
+  ) : type === "subTitle" ? (
+    <p class="subTitle">
+      <slot />
+    </p>
+  ) : (
+    <p class="body">
+      <slot />
+    </p>
+  )
+}
+
+<style>
+  h1 {
+    font-family: Manrope;
+    font-size: 3.5rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 3.625rem; /* 103.571% */
+    letter-spacing: 0.125rem;
+  }
+  h2 {
+    font-family: Manrope;
+    font-size: 2.5rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 2.75rem; /* 110% */
+    letter-spacing: 0.08931rem;
+  }
+  h3 {
+    font-family: Manrope;
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 2.25rem; /* 112.5% */
+    letter-spacing: 0.07144rem;
+  }
+  h4 {
+    font-family: Manrope;
+    font-size: 1.75rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 0.125rem;
+  }
+  h5 {
+    font-family: Manrope;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 0.10713rem;
+  }
+  h6 {
+    font-family: Manrope;
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 0.08038rem;
+  }
+  .overline {
+    font-family: Manrope;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.625rem;
+  }
+  .subTitle {
+    font-family: Manrope;
+    font-size: 0.8125rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.5625rem; /* 192.308% */
+    letter-spacing: 0.05806rem;
+  }
+  .body {
+    font-family: Manrope;
+    font-size: 0.9375rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.5625rem;
+  }
+</style>

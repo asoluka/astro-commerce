@@ -1,0 +1,70 @@
+---
+const { type } = Astro.props;
+---
+
+{
+  type === "primary" ? (
+    <button class="primary">
+      <slot />
+    </button>
+  ) : type === "secondary" ? (
+    <button class="secondary">
+      <slot />
+    </button>
+  ) : (
+    <button class="tertiary">
+      <slot />
+    </button>
+  )
+}
+
+<style>
+  button {
+    outline: none;
+    border: none;
+    background: transparent;
+  }
+  .primary,
+  .secondary,
+  .tertiary {
+    font-family: Manrope;
+    font-size: 0.8125rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 0.0625rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .primary {
+    width: 10rem;
+    height: 3rem;
+    background: var(--primary);
+    color: var(--white);
+  }
+  .secondary {
+    width: 10rem;
+    height: 3rem;
+    flex-shrink: 0;
+    border: 1px solid var(--night);
+    color: var(--night);
+  }
+  .tertiary {
+    opacity: 0.5;
+  }
+  .primary:hover {
+    background: var(--primary-light);
+  }
+  .secondary:hover {
+    border: 1px solid var(--night);
+    background: var(--night);
+    color: var(--white);
+  }
+  .tertiary:hover {
+    color: var(--primary);
+  }
+</style>

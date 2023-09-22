@@ -1,0 +1,95 @@
+---
+const { type, placeholder, label, name, id, min, max } = Astro.props;
+---
+
+{
+  type === "radio" ? (
+    <div class="styled-radio">
+      <input
+        id={id}
+        class="radio"
+        type="radio"
+        name={name}
+        placeholder={placeholder}
+      />
+      <label for={id}>{label}</label>
+    </div>
+  ) : type === "text" ? (
+    <input class="text" type="text" name={name} placeholder={placeholder} />
+  ) : type === "counter" ? (
+    <input
+      class="counter"
+      type="number"
+      name={name}
+      placeholder={placeholder}
+      min={min}
+      max={max}
+    />
+  ) : null
+}
+
+<style>
+  .fit-parent {
+    width: 100%;
+  }
+  input[type="text"] {
+    width: 309px;
+    height: 56px;
+    border-radius: 8px;
+    border: 1px solid #cfcfcf;
+    background: #fff;
+    padding: 0 24px;
+    font-weight: bold;
+  }
+  input::placeholder {
+    font-family: Manrope;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.01563rem;
+    opacity: 0.4;
+    color: var(--night);
+  }
+  input:hover,
+  input:focus {
+    border: 1px solid #d87d4a;
+    outline: none;
+  }
+  .styled-radio input[type="radio"] {
+    width: 20px;
+    height: 20px;
+    accent-color: #d87d4a;
+    position: absolute;
+    left: 18px;
+  }
+  label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    height: 56px;
+    border-radius: 8px;
+    border: 1px solid #cfcfcf;
+    background: #fff;
+    padding: 0 21px 0 48px;
+    width: fit-content;
+  }
+  input[type="radio"]:checked + label,
+  label:hover {
+    border: 1px solid #d87d4a;
+    font-weight: bold;
+  }
+  .styled-radio {
+    display: flex;
+    width: fit-content;
+    align-items: center;
+    position: relative;
+  }
+  .counter {
+    width: 120px;
+    height: 48px;
+    background: var(--gray);
+    border: 1px solid var(--gray);
+    padding: 0 21px;
+  }
+</style>
