@@ -1,47 +1,84 @@
 ---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/organisms/Hero.astro";
+import {colors} from "../design-system/colors.js"
 import Text from "../components/atoms/Text.astro";
 import Button from "../components/atoms/Button.astro";
-import Input from "../components/atoms/Input.astro";
+import { Image } from "astro:assets";
+import headphone from "../../src/assets/exported/headphone.png"
+import earphone from "../../src/assets/exported/earphone.png"
+import speaker from "../../src/assets/exported/speaker.png"
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<Layout title="Home">
+  <Hero>
+    <div class="flex hero pt-36">
+      <div class="flex flex-col gap-4">
+        <Text type="body" color={colors.white}>NEW PRODUCT</Text>
+        <div class="w-[396px]">
+          <Text type="h1" color={colors.white}> XX99 Mark II Headphones</Text>
+        </div>
+        <div class="w-[349px]">
+          <Text type="body" color={colors.white}> Experience natural, lifelike audio and exceptional build quality made for the passionate music enthusiast.</Text>
+        </div>
+        <Button className="mt-8" type="primary">SEE PRODUCT</Button>
+      </div>
+    </div>
+  </Hero>
 
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="./assets/favicon-32x32.png"
-    />
+  <div class="container flex justify-between mt-36 mb-36">
+    <div class="product-card">
+      <Image class="item-image" src={headphone} alt="headphone" />
+      <Text type="h4">HEADPHONES</Text>
+      <Button>Shop</Button>
+    </div>
+    <div class="product-card">
+      <Image class="item-image" src={speaker} alt="headphone" />
+      <Text type="h4">SPEAKERS</Text>
+      <Button>Shop</Button>
+    </div>
+    <div class="product-card">
+      <Image class="item-image circle-item" src={earphone} alt="headphone" />
+      <Text type="h4">EARPHONES</Text>
+      <Button>Shop</Button>
+    </div>
+  </div>
+</Layout>
 
-    <title>Frontend Mentor | Audiophile e-commerce website</title>
-  </head>
-  <body>
-    <Button type="primary">Primary</Button>
-    <Input type="radio" label="Male" name="gender" id="male" />
-    <Input type="radio" label="Female" name="gender" id="female" />
-    <Input type="text" name="gender" placeholder="Name" />
-    <Input type="counter" name="counter" min={1} />
-  </body>
 
-  <style is:global>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<style>
+  .hero {
+    background-image: url("../assets/home/desktop/image-hero.jpg");
+    min-height: 700px;
+    background-size: contain; 
+    background-position-y: -80px;
+    background-position-x: 260px;
+    background-repeat: no-repeat;
+  }
 
-    :root {
-      --primary: #d87d4a;
-      --dark: #101010;
-      --night: #000;
-      --gray: #f1f1f1;
-      --off-white: #fafafa;
-      --white: #fff;
-      --primary-light: #fbaf85;
-    }
-  </style>
-</html>
+  .product-card {
+    width: 350px;
+    height: 204px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    background: #F1F1F1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    position: relative;
+    padding-top: 100px;
+  }
+
+  .item-image {
+    width: 122.947px;
+    height: 160px;
+    position: absolute;
+    top: -80px;
+  }
+
+  .circle-item {
+    width: 178px;
+height: 161px;
+  }
+</style>

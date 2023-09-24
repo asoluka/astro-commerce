@@ -1,18 +1,18 @@
 ---
-const { type } = Astro.props;
+const { type, className } = Astro.props;
 ---
 
 {
   type === "primary" ? (
-    <button class="primary">
+    <button class={`primary ${className}`}>
       <slot />
     </button>
   ) : type === "secondary" ? (
-    <button class="secondary">
+    <button class={`secondary ${className}`}>
       <slot />
     </button>
   ) : (
-    <button class="tertiary">
+    <button class={`tertiary ${className}`}>
       <slot />
     </button>
   )

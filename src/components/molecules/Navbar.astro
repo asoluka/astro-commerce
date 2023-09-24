@@ -1,0 +1,33 @@
+---
+import { Image } from "astro:assets";
+import Text from "../atoms/Text.astro";
+import logo from "../../assets/shared/desktop/logo.svg";
+import cartIcon from "../../assets/shared/desktop/icon-cart.svg";
+---
+
+<nav class="top-nav">
+  <Image src={logo} alt="logo" />
+
+  <div class="flex nav-links">
+    <a href="/"><Text type="subTitle">Home</Text></a>
+    <a href="/"><Text type="subTitle">Headphones</Text></a>
+    <a href="/"><Text type="subTitle">Speakers</Text></a>
+    <a href="/"><Text type="subTitle">Earphones</Text></a>
+  </div>
+
+  <Image src={cartIcon} alt="logo" />
+</nav>
+
+<style>
+  .top-nav {
+    color: var(--white);
+    padding: 24px 0;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  .nav-links {
+    text-transform: uppercase;
+    gap: 34px;
+  }
+</style>

@@ -1,0 +1,16 @@
+---
+import Navbar from "../molecules/Navbar.astro";
+---
+
+<div class="hero-wrapper">
+  <div class="container">
+    <Navbar />
+    <slot />
+  </div>
+</div>
+
+<style>
+  .hero-wrapper {
+    background-color: #191919;
+  }
+</style>
