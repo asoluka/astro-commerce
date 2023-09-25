@@ -7,8 +7,8 @@ const { type, className } = Astro.props;
     <button class={`primary ${className}`}>
       <slot />
     </button>
-  ) : type === "secondary" ? (
-    <button class={`secondary ${className}`}>
+  ) : type === "secondary" || "secondary-inverted" ? (
+    <button class={`${type} ${className}`}>
       <slot />
     </button>
   ) : (
@@ -26,7 +26,8 @@ const { type, className } = Astro.props;
   }
   .primary,
   .secondary,
-  .tertiary {
+  .tertiary,
+  .secondary-inverted {
     font-family: Manrope;
     font-size: 0.8125rem;
     font-style: normal;
@@ -53,6 +54,14 @@ const { type, className } = Astro.props;
     border: 1px solid var(--night);
     color: var(--night);
   }
+  .secondary-inverted {
+    width: 10rem;
+    height: 3rem;
+    flex-shrink: 0;
+    border: 1px solid var(--night);
+    color: var(--white);
+    background-color: var(--night);
+  }
   .tertiary {
     opacity: 0.5;
   }
@@ -63,6 +72,11 @@ const { type, className } = Astro.props;
     border: 1px solid var(--night);
     background: var(--night);
     color: var(--white);
+  }
+  .secondary-inverted:hover {
+    background: var(--night);
+    color: var(--white);
+    opacity: 0.85;
   }
   .tertiary:hover {
     color: var(--primary);
