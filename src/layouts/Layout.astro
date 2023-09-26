@@ -41,8 +41,15 @@ const { title } = Astro.props;
   }
 
   .container {
-    width: 1440px;
+    width: 100%;
     margin: auto;
+    padding: 0 16px;
+  }
+
+  @media only screen and (min-width: 960px) {
+    .container {
+      width: 1440px;
+    }
   }
   code {
     font-family:

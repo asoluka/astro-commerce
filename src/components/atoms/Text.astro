@@ -1,48 +1,48 @@
 ---
-const { type, color } = Astro.props;
+const { type, color, className } = Astro.props;
 ---
 
 {
   type === "h1" ? (
-    <h1>
+    <h1 class={`${className}`}>
       <slot />
     </h1>
   ) : type === "h2" ? (
-    <h2>
+    <h2 class={`${className}`}>
       <slot />
     </h2>
   ) : type === "h3" ? (
-    <h3>
+    <h3 class={`${className}`}>
       <slot />
     </h3>
   ) : type === "h4" ? (
-    <h4>
+    <h4 class={`${className}`}>
       <slot />
     </h4>
   ) : type === "h5" ? (
-    <h5>
+    <h5 class={`${className}`}>
       <slot />
     </h5>
   ) : type === "h6" ? (
-    <h6>
+    <h6 class={`${className}`}>
       <slot />
     </h6>
   ) : type === "overline" ? (
-    <p class="overline">
+    <p class={`overline ${className}`}>
       <slot />
     </p>
   ) : type === "subTitle" ? (
-    <p class="subTitle">
+    <p class={`subTitle ${className}`}>
       <slot />
     </p>
   ) : (
-    <p class="body">
+    <p class={`body ${className}`}>
       <slot />
     </p>
   )
 }
 
-<style define:vars={{color}}>
+<style define:vars={{ color }}>
   h1 {
     font-family: Manrope;
     font-size: 3.5rem;
@@ -114,7 +114,15 @@ const { type, color } = Astro.props;
     font-weight: 500;
     line-height: 1.5625rem;
   }
-  h1, h2, h3, h4, h5, h6, .overline, .body, .subTitle {
-    color: var(--color)
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .overline,
+  .body,
+  .subTitle {
+    color: var(--color);
   }
 </style>
