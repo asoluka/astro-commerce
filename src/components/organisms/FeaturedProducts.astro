@@ -6,7 +6,9 @@ import speaker from "../../../src/assets/exported/speaker.png";
 import FeaturedProductCard from "../molecules/FeaturedProductCard.astro";
 ---
 
-<div class="container flex justify-between mt-36 mb-12">
+<div
+  class="container flex flex-wrap justify-center xl:justify-between gap-8 mt-8 mb-12"
+>
   <FeaturedProductCard
     image={headphone}
     imageAlt="headphone"
@@ -19,7 +21,12 @@ import FeaturedProductCard from "../molecules/FeaturedProductCard.astro";
     <Button>Shop</Button>
   </FeaturedProductCard>
 
-  <FeaturedProductCard image={earphone} imageAlt="earphone" title="EARPHONES">
+  <FeaturedProductCard
+    width="160px"
+    image={earphone}
+    imageAlt="earphone"
+    title="EARPHONES"
+  >
     <Button>Shop</Button>
   </FeaturedProductCard>
 </div>

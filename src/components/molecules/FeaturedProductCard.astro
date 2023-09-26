@@ -1,7 +1,13 @@
 ---
 import { Image } from "astro:assets";
 import Text from "../atoms/Text.astro";
-const { image, imageAlt, title } = Astro.props;
+const {
+  image,
+  imageAlt,
+  title,
+  width = "122.947px",
+  height = "160px",
+} = Astro.props;
 ---
 
 <div class="product-card">
@@ -10,7 +16,7 @@ const { image, imageAlt, title } = Astro.props;
   <slot />
 </div>
 
-<style>
+<style define:vars={{ width, height }}>
   .product-card {
     width: 350px;
     height: 204px;
@@ -23,11 +29,12 @@ const { image, imageAlt, title } = Astro.props;
     gap: 16px;
     position: relative;
     padding-top: 100px;
+    margin-top: 100px;
   }
 
   .item-image {
-    width: 122.947px;
-    height: 160px;
+    width: var(--width);
+    height: var(--height);
     position: absolute;
     top: -80px;
   }
