@@ -4,13 +4,17 @@ import Text from "../atoms/Text.astro";
 import outroImg from "../../../src/assets/shared/desktop/image-best-gear.jpg";
 ---
 
-<div class="container flex justify-between mt-16 mb-36">
+<div
+  class="container flex flex-col-reverse lg:flex-row items-center lg:items-left justify-between mt-16 mb-36"
+>
   <div class="w-full flex flex-col justify-center gap-4">
-    <div class="w-[396px]">
-      <Text type="h3">BRINGING YOU THE BEST AUDIO GEAR</Text>
+    <div class="w-full lg:w-[396px]">
+      <Text type="h3" className="text-center lg:text-left">
+        BRINGING YOU THE BEST AUDIO GEAR
+      </Text>
     </div>
-    <div class="w-4/6">
-      <Text type="body">
+    <div class="w-full lg:w-4/6">
+      <Text type="body" className="text-center lg:text-left">
         Located at the heart of New York City, Audiophile is the premier store
         for high end headphones, earphones, speakers, and audio accessories. We
         have a large showroom and luxury demonstration rooms available for you
@@ -20,7 +24,7 @@ import outroImg from "../../../src/assets/shared/desktop/image-best-gear.jpg";
       </Text>
     </div>
   </div>
-  <Image src={outroImg} alt="best-gear" />
+  <Image class="mb-16 lg:mb-0" src={outroImg} alt="best-gear" />
 </div>
 
 <style></style>
