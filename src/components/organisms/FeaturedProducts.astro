@@ -1,0 +1,25 @@
+---
+import Button from "../../components/atoms/Button.astro";
+import headphone from "../../../src/assets/exported/headphone.png";
+import earphone from "../../../src/assets/exported/earphone.png";
+import speaker from "../../../src/assets/exported/speaker.png";
+import FeaturedProductCard from "../molecules/FeaturedProductCard.astro";
+---
+
+<div class="container flex justify-between mt-36 mb-12">
+  <FeaturedProductCard
+    image={headphone}
+    imageAlt="headphone"
+    title="HEADPHONES"
+  >
+    <Button>Shop</Button>
+  </FeaturedProductCard>
+
+  <FeaturedProductCard image={speaker} imageAlt="speakers" title="SPEAKERS">
+    <Button>Shop</Button>
+  </FeaturedProductCard>
+
+  <FeaturedProductCard image={earphone} imageAlt="earphone" title="EARPHONES">
+    <Button>Shop</Button>
+  </FeaturedProductCard>
+</div>
