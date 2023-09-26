@@ -9,29 +9,44 @@ import instagram from "../../assets/shared/desktop/icon-instagram.svg";
 ---
 
 <footer class="footer">
-  <nav class="container flex justify-between">
+  <nav
+    class="container flex flex-col lg:flex-row items-center lg:justify-between gap-8"
+  >
     <Image src={logo} alt="logo" />
 
-    <div class="flex nav-links gap-12">
+    <div
+      class="flex nav-links gap-8 lg:gap-12 flex-col lg:flex-row items-center lg:items-start mt-4 mb-4 lg:mt-0 lg:mb-0"
+    >
       <a href="/"><Text type="subTitle">Home</Text></a>
       <a href="/"><Text type="subTitle">Headphones</Text></a>
       <a href="/"><Text type="subTitle">Speakers</Text></a>
       <a href="/"><Text type="subTitle">Earphones</Text></a>
     </div>
   </nav>
-  <div class="container flex justify-between">
-    <div class="w-[540px] flex flex-col gap-16">
-      <Text type="body" color={colors.dimWhite}>
+
+  <div class="container flex flex-col lg:flex-row lg:justify-between">
+    <div class="w-full lg:w-[540px] flex flex-col gap-16">
+      <Text
+        type="body"
+        className="text-center lg:text-left"
+        color={colors.dimWhite}
+      >
         Audiophile is an all in one stop to fulfill your audio needs. We're a
         small team of music lovers and sound specialists who are devoted to
         helping you get the most out of personal audio. Come and visit our demo
         facility - we’re open 7 days a week.
       </Text>
-      <Text type="body" color={colors.dimWhite}>
+      <Text
+        type="body"
+        className="text-center lg:text-left"
+        color={colors.dimWhite}
+      >
         Copyright 2021. All Rights Reserved
       </Text>
     </div>
-    <div class="w-full flex justify-end gap-6 social-icons items-center">
+    <div
+      class="w-full flex justify-center lg:justify-end gap-6 social-icons items-center mt-8 lg:mt-0"
+    >
       <Image src={facebook} alt="facebook-icon" />
       <Image src={twitter} alt="twitter-icon" />
       <Image src={instagram} alt="instagram-icon" />
@@ -46,7 +61,8 @@ import instagram from "../../assets/shared/desktop/icon-instagram.svg";
     color: white;
   }
   .footer > nav {
-    padding: 24px 0;
+    padding-top: 24px;
+    padding-bottom: 24px;
     text-transform: uppercase;
   }
 </style>
