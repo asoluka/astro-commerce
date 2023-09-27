@@ -1,110 +1,261 @@
-<!DOCTYPE html>
-<html lang="en">
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/organisms/Hero.astro";
+import Button from "../components/atoms/Button.astro";
+import Footer from "../components/organisms/Footer.astro";
+import Text from "../components/atoms/Text.astro";
+import Input from "../components/atoms/Input.astro";
+import { colors } from "../design-system/colors";
+import Modal from "../components/molecules/Modal.astro";
+const openSuccessModal = true;
+const cartItems = [
+  {
+    name: "XX59",
+    image:
+      "/assets/product-xx59-headphones/desktop/image-category-page-preview.jpg",
+    price: "899",
+  },
+  {
+    name: "XX99 MK II",
+    image:
+      "/assets/product-xx99-mark-one-headphones/desktop/image-category-page-preview.jpg",
+    price: "2,999",
+  },
+  {
+    name: "YX1",
+    image:
+      "/assets/product-yx1-earphones/desktop/image-category-page-preview.jpg",
+    price: "599",
+  },
+];
+---
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<Layout title="Checkout">
+  <Hero />
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+  <div class="container mt-8 mb-8">
+    <Button onClick="history.back()" color="rgba(0,0,0,.7)">Go back</Button>
+  </div>
+</Layout>
 
-  <title>Frontend Mentor | Audiophile e-commerce website</title>
-</head>
+<div class="container flex flex-wrap lg:flex-nowrap gap-8 mb-16">
+  <div class="checkout-form w-full lg:w-2/3">
+    <Text className="mb-8" type="h6">CHECKOUT</Text>
 
-<body>
-  Home
-  Headphones
-  Speakers
-  Earphones
+    <div class="form-row mb-8">
+      <Text className="uppercase mb-4" type="body" color={colors.primary}>
+        Billing Details
+      </Text>
+      <div class="flex flex-col md:grid grid-cols-2 gap-4">
+        <div class="col-span-1"><Input type="text" label="Name" /></div>
+        <div class="col-span-1">
+          <Input type="text" label="Email Address" />
+        </div>
+        <div class="col-span-1">
+          <Input type="text" label="Phone Number" />
+        </div>
+      </div>
+    </div>
 
-  
-  <!-- Cart Modal -->
-  Cart(3)
-  Remove All
+    <div class="form-row mb-8">
+      <Text className="uppercase mb-4" type="body" color={colors.primary}>
+        shipping info
+      </Text>
+      <div class="flex flex-col md:grid grid-cols-2 gap-4">
+        <div class="col-span-2"><Input type="text" label="Address" /></div>
+        <div class="col-span-1"><Input type="text" label="Zip Code" /></div>
+        <div class="col-span-1">
+          <Input type="text" label="City" />
+        </div>
+        <div class="col-span-1">
+          <Input type="text" label="Country" />
+        </div>
+      </div>
+    </div>
 
-  XX99 MK II x1
-  $2,999
-  
-  XX59 x2
-  $899
-  
-  YX1 x1
-  $599
-  
-  Total $5,396
+    <div class="form-row mb-8">
+      <Text className="uppercase mb-4" type="body" color={colors.primary}>
+        payment details
+      </Text>
+      <div class="flex flex-col md:grid grid-cols-2 gap-4">
+        <div class="col-span-1 row-span-2">
+          <Text className="mb-4 font-bold" type="h6">Payment Method</Text>
+        </div>
+        <div class="col-span-1">
+          <Input
+            type="radio"
+            id="e-Money"
+            label="e-Money"
+            name="payment-method"
+          />
+        </div>
+        <div class="col-span-1">
+          <Input
+            type="radio"
+            id="cash-on-delivery"
+            label="Cash on Delivery"
+            name="payment-method"
+          />
+        </div>
+        <div class="col-span-1">
+          <Input type="text" label="e-Money Number" />
+        </div>
+        <div class="col-span-1">
+          <Input type="text" label="e-Money PIN" />
+        </div>
+      </div>
+    </div>
+  </div>
 
-  Checkout
-  <!-- Cart modal end -->
+  <div class="summary w-full lg:w-1/3">
+    <div class="flex justify-between items-center mb-12">
+      <Text type="h6" className="uppercase">summary</Text>
+    </div>
 
-  
-  Go back
+    {
+      cartItems.map((item) => (
+        <div class="flex justify-between items-center mt-4 mb-4">
+          <div class="flex gap-4 items-center">
+            <img
+              class="w-[55px]"
+              src={item.image}
+              alt={item.name}
+              style={{ borderRadius: "8px" }}
+            />
+            <div class="flex flex-col gap-0.5">
+              <Text type="subTitle">{item.name}</Text>
+              <Text type="body">$ {item.price}</Text>
+            </div>
+          </div>
 
-  Checkout
+          <Input type="counter-sm" value={1} />
+        </div>
+      ))
+    }
 
-  Billing details
-  Name
-  Email address
-  Phone number
+    <div class="flex justify-between items-center mt-16 mb-6">
+      <Text type="h6" color="rgba(0,0,0,.5)">TOTAL</Text>
+      <Text type="h6">$ 5,396</Text>
+    </div>
+    <div class="flex justify-between items-center mt-6 mb-6">
+      <Text type="h6" color="rgba(0,0,0,.5)">SHIPPING</Text>
+      <Text type="h6">$ 50</Text>
+    </div>
+    <div class="flex justify-between items-center mt-6 mb-6">
+      <Text type="h6" color="rgba(0,0,0,.5)">VAT (INCLUDED)</Text>
+      <Text type="h6">$ 1,079</Text>
+    </div>
+    <div class="flex justify-between items-center mt-12 mb-8">
+      <Text type="h6" color="rgba(0,0,0,.5)">GRAND TOTAL</Text>
+      <Text type="h6">$ 5,446</Text>
+    </div>
 
-  Shipping info
-  Address
-  ZIP code
-  City
-  Country
+    <Button width="100%" type="primary">CHECKOUT</Button>
+  </div>
+</div>
 
-  Payment details
-  Payment method
-  e-Money
-  Cash on delivery
-  e-Money number
-  e-money PIN
+{
+  openSuccessModal && (
+    <Modal>
+      <div class="success-modal">
+        <img
+          class="w-[70px]"
+          src="/assets/exported/success-check.png"
+          alt="success-check"
+        />
+        <Text type="h5" className="w-[250px]">
+          THANK YOU FOR YOUR ORDER
+        </Text>
+        <Text type="body">You will receive an email confirmation shortly.</Text>
+        <div class="flex w-full">
+          <div class="success-summary flex w-1/2 gap-4 p-4 bg-grey">
+            <img
+              class="w-[55px]"
+              src="/assets/product-xx59-headphones/desktop/image-category-page-preview.jpg"
+              alt="XX59"
+              style={{ borderRadius: "8px" }}
+            />
+            <div class="flex flex-col gap-0.5">
+              <Text type="subTitle">XX59 MKII</Text>
+              <Text type="body">$ 2,999</Text>
+            </div>
+            <Text type="subTitle">x1</Text>
+          </div>
+          <div class="success-summary w-1/2 p-4 bg-black">
+            <Text type="subTitle" color="#f1f1f1">
+              GRAND TOTAL
+            </Text>
+            <Text type="body" color={colors.white}>
+              $ 5,446
+            </Text>
+          </div>
+        </div>
 
-  The ‘Cash on Delivery’ option enables you to pay in cash when our delivery courier arrives 
-  at your residence. Just make sure your address is correct so that your order will not be cancelled.
+        <a href="/">
+          <Button width="100%" type="primary">
+            BACK TO HOME
+          </Button>
+        </a>
+      </div>
+    </Modal>
+  )
+}
 
-  Summary
-  XX99 MK II x1
-  $2,999
+<!-- Footer -->
+<Footer />
 
-  XX59 x2
-  $899
+<style>
+  .success-summary {
+    padding: 35px 24px;
+  }
+  .bg-grey {
+    background-color: #f1f1f1;
+  }
+  .bg-black {
+    background-color: var(--night);
+  }
+  .success-modal {
+    width: 95%;
+    height: 581px;
+    border-radius: 8px;
+    background: #fff;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    top: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 48px 36px;
+    gap: 24px;
+  }
+  .form-row {
+    gap: 16px;
+  }
+  body {
+    background-color: #f1f1f1;
+  }
+  .checkout-form,
+  .summary {
+    border-radius: 8px;
+    background: #fff;
+    padding: 36px;
+  }
+  .summary {
+    height: fit-content;
+  }
 
-  YX1 x1
-  $599
+  @media only screen and (min-width: 768px) {
+    .success-modal {
+      width: 80%;
+      top: 200px;
+    }
+  }
 
-  Total $5,396
-  Shipping $10
-  VAT $120
-
-  Grand total $5,526
-
-  Continue & pay
-
-
-  <!-- Success Modal -->
-  Thank you for your order
-  You will receive an email confirmation shortly.
-
-  XX99 MK II x 1
-  $2,999
-  and 2 other item(s)
-
-  Grand total
-  $5,526
-
-  Back to home
-  <!-- End success modal -->
-
-
-  Home
-  Headphones
-  Speakers
-  Earphones
-
-  Audiophile is an all in one stop to fulfill your audio needs. We're a small team of music lovers
-  and sound specialists who are devoted to helping you get the most out of personal audio. Come and
-  visit our demo facility - we’re open 7 days a week.
-
-  Copyright 2021. All Rights Reserved
-</body>
-
-</html>
+  @media only screen and (min-width: 960px) {
+    .success-modal {
+      width: 540px;
+    }
+  }
+</style>

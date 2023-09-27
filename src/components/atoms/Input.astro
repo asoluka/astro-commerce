@@ -1,5 +1,15 @@
 ---
-const { type, placeholder, label, name, id, min, max, value } = Astro.props;
+const {
+  type,
+  placeholder,
+  label,
+  name,
+  id,
+  min,
+  max,
+  value,
+  width = "100%",
+} = Astro.props;
 ---
 
 {
@@ -16,13 +26,17 @@ const { type, placeholder, label, name, id, min, max, value } = Astro.props;
       <label for={id}>{label}</label>
     </div>
   ) : type === "text" ? (
-    <input
-      class="text"
-      type="text"
-      value={value}
-      name={name}
-      placeholder={placeholder}
-    />
+    <>
+      {label && <label for={id}>{label}</label>}
+      <input
+        class="text"
+        type="text"
+        value={value}
+        name={name}
+        id={id}
+        placeholder={placeholder}
+      />
+    </>
   ) : type === "counter" ? (
     <input
       class="counter"
@@ -46,12 +60,12 @@ const { type, placeholder, label, name, id, min, max, value } = Astro.props;
   ) : null
 }
 
-<style>
+<style define:vars={{ width }}>
   .fit-parent {
-    width: 100%;
+    width: var(--width);
   }
   input[type="text"] {
-    width: 309px;
+    width: var(--width);
     height: 56px;
     border-radius: 8px;
     border: 1px solid #cfcfcf;
@@ -74,14 +88,25 @@ const { type, placeholder, label, name, id, min, max, value } = Astro.props;
     border: 1px solid #d87d4a;
     outline: none;
   }
-  .styled-radio input[type="radio"] {
+  .styled-radio {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+  }
+  .styled-radio > input[type="radio"] {
     width: 20px;
     height: 20px;
     accent-color: #d87d4a;
+    display: block;
     position: absolute;
-    left: 18px;
+    left: 16px;
+    cursor: pointer;
   }
-  label {
+  label + input[type="text"] {
+    margin-top: 8px;
+  }
+  input[type="radio"] + label {
     display: flex;
     align-items: center;
     gap: 12px;
@@ -90,18 +115,12 @@ const { type, placeholder, label, name, id, min, max, value } = Astro.props;
     border: 1px solid #cfcfcf;
     background: #fff;
     padding: 0 21px 0 48px;
-    width: fit-content;
+    width: var(--width);
   }
   input[type="radio"]:checked + label,
-  label:hover {
+  input[type="radio"] + label:hover {
     border: 1px solid #d87d4a;
     font-weight: bold;
-  }
-  .styled-radio {
-    display: flex;
-    width: fit-content;
-    align-items: center;
-    position: relative;
   }
   .counter {
     width: 120px;

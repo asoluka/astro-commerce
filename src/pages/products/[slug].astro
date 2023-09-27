@@ -26,104 +26,108 @@ const { name, description, price, features, image, includes, gallery, others } =
 <Layout title="Earphones">
   <Hero />
 
-  <div class="product-item-row container mt-16 mb-36">
-    <div class="w-full flex flex-col justify-center gap-4">
-      <div class="w-full lg:w-[396px]">
-        <Text type="body" color={colors.primary}>NEW PRODUCT</Text>
-      </div>
-      <div class="w-full lg:w-[396px]">
-        <Text type="h3">
-          {name}
-        </Text>
-      </div>
-      <div class="w-full lg:w-4/6">
-        <Text type="body">
-          {description}
-        </Text>
-      </div>
-      <div class="w-full lg:w-4/6 mt-4 mb-4">
-        <Text type="h6" className=" font-extrabold">
-          {`$${price}`}
-        </Text>
-      </div>
-      <div class="flex gap-4">
-        <Input type="counter" value={1} />
-        <Button type="primary">ADD TO CART</Button>
-      </div>
-    </div>
-    <div>
-      <img class="mb-16 lg:mb-0" src={image.desktop} alt="best-gear" />
-    </div>
+  <div class="container mt-8 mb-8">
+    <Button onClick="history.back()" color="rgba(0,0,0,.7)">Go back</Button>
   </div>
-
-  <div class="container features">
-    <div class="w-full flex flex-col justify-center gap-4">
-      <div class="w-full lg:w-[396px]">
-        <Text type="h5">FEATURES</Text>
-      </div>
-      <div class="w-full lg:w-5/6">
-        <Text type="body">
-          {features}
-        </Text>
-      </div>
-    </div>
-
-    <div class="w-full flex flex-col justify-center gap-4">
-      <div class="w-full lg:w-[396px]">
-        <Text type="h5">IN THE BOX</Text>
-      </div>
-      <div class="w-full lg:w-4/6">
-        <Text type="body">
-          {
-            includes.map((extra) => (
-              <div class="flex gap-4">
-                <Text type="body" color={colors.primary}>
-                  {`${extra.quantity}x`}
-                </Text>
-                <Text type="body">{extra.item}</Text>
-              </div>
-            ))
-          }
-        </Text>
-      </div>
-    </div>
-  </div>
-
-  <div class="container gallery mt-36 mb-36">
-    <div style={{ backgroundImage: `url(${gallery.first.desktop})` }}></div>
-    <div style={{ backgroundImage: `url(${gallery.second.desktop})` }}></div>
-    <div style={{ backgroundImage: `url(${gallery.third.desktop})` }}></div>
-  </div>
-
-  <div
-    class="container flex flex-wrap justify-between md:flex-nowrap gap-4 mt-8 mb-36"
-  >
-    {
-      others.map((item) => (
-        <div class="flex flex-col gap-8 others w-full md:w-1/3 mb-12 md:mb-0">
-          <div class="img-wrapper">
-            <img src={item.image.desktop} alt={item.slug} />
-          </div>
-          <div class="flex flex-col gap-8 items-center details">
-            <Text type="h5">{item.name}</Text>
-            <a href={`/products/${item.slug}`}>
-              <Button type="primary">SEE PRODUCT</Button>
-            </a>
-          </div>
-        </div>
-      ))
-    }
-  </div>
-
-  <!-- Featured products -->
-  <FeaturedProducts />
-
-  <!-- Outro section -->
-  <Outro />
-
-  <!-- Footer -->
-  <Footer />
 </Layout>
+
+<div class="product-item-row container mt-16 mb-36">
+  <div class="w-full flex flex-col justify-center gap-4">
+    <div class="w-full lg:w-[396px]">
+      <Text type="body" color={colors.primary}>NEW PRODUCT</Text>
+    </div>
+    <div class="w-full lg:w-[396px]">
+      <Text type="h3">
+        {name}
+      </Text>
+    </div>
+    <div class="w-full lg:w-4/6">
+      <Text type="body">
+        {description}
+      </Text>
+    </div>
+    <div class="w-full lg:w-4/6 mt-4 mb-4">
+      <Text type="h6" className=" font-extrabold">
+        {`$${price}`}
+      </Text>
+    </div>
+    <div class="flex gap-4">
+      <Input type="counter" value={1} />
+      <Button type="primary">ADD TO CART</Button>
+    </div>
+  </div>
+  <div>
+    <img class="mb-16 lg:mb-0" src={image.desktop} alt="best-gear" />
+  </div>
+</div>
+
+<div class="container features">
+  <div class="w-full flex flex-col justify-center gap-4">
+    <div class="w-full lg:w-[396px]">
+      <Text type="h5">FEATURES</Text>
+    </div>
+    <div class="w-full lg:w-5/6">
+      <Text type="body">
+        {features}
+      </Text>
+    </div>
+  </div>
+
+  <div class="w-full flex flex-col justify-center gap-4">
+    <div class="w-full lg:w-[396px]">
+      <Text type="h5">IN THE BOX</Text>
+    </div>
+    <div class="w-full lg:w-4/6">
+      <Text type="body">
+        {
+          includes.map((extra) => (
+            <div class="flex gap-4">
+              <Text type="body" color={colors.primary}>
+                {`${extra.quantity}x`}
+              </Text>
+              <Text type="body">{extra.item}</Text>
+            </div>
+          ))
+        }
+      </Text>
+    </div>
+  </div>
+</div>
+
+<div class="container gallery mt-36 mb-36">
+  <div style={{ backgroundImage: `url(${gallery.first.desktop})` }}></div>
+  <div style={{ backgroundImage: `url(${gallery.second.desktop})` }}></div>
+  <div style={{ backgroundImage: `url(${gallery.third.desktop})` }}></div>
+</div>
+
+<div
+  class="container flex flex-wrap justify-between md:flex-nowrap gap-4 mt-8 mb-36"
+>
+  {
+    others.map((item) => (
+      <div class="flex flex-col gap-8 others w-full md:w-1/3 mb-12 md:mb-0">
+        <div class="img-wrapper">
+          <img src={item.image.desktop} alt={item.slug} />
+        </div>
+        <div class="flex flex-col gap-8 items-center details">
+          <Text type="h5">{item.name}</Text>
+          <a href={`/products/${item.slug}`}>
+            <Button type="primary">SEE PRODUCT</Button>
+          </a>
+        </div>
+      </div>
+    ))
+  }
+</div>
+
+<!-- Featured products -->
+<FeaturedProducts />
+
+<!-- Outro section -->
+<Outro />
+
+<!-- Footer -->
+<Footer />
 
 <style>
   .hero {
