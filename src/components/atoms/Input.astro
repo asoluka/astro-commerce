@@ -1,5 +1,5 @@
 ---
-const { type, placeholder, label, name, id, min, max } = Astro.props;
+const { type, placeholder, label, name, id, min, max, value } = Astro.props;
 ---
 
 {
@@ -11,15 +11,33 @@ const { type, placeholder, label, name, id, min, max } = Astro.props;
         type="radio"
         name={name}
         placeholder={placeholder}
+        value={value}
       />
       <label for={id}>{label}</label>
     </div>
   ) : type === "text" ? (
-    <input class="text" type="text" name={name} placeholder={placeholder} />
+    <input
+      class="text"
+      type="text"
+      value={value}
+      name={name}
+      placeholder={placeholder}
+    />
   ) : type === "counter" ? (
     <input
       class="counter"
       type="number"
+      value={value}
+      name={name}
+      placeholder={placeholder}
+      min={min}
+      max={max}
+    />
+  ) : type === "counter-sm" ? (
+    <input
+      class="counter-sm"
+      type="number"
+      value={value}
       name={name}
       placeholder={placeholder}
       min={min}
@@ -91,5 +109,12 @@ const { type, placeholder, label, name, id, min, max } = Astro.props;
     background: var(--gray);
     border: 1px solid var(--gray);
     padding: 0 21px;
+  }
+  .counter-sm {
+    width: 100px;
+    height: 36px;
+    background: var(--gray);
+    border: 1px solid var(--gray);
+    padding: 0 14px;
   }
 </style>

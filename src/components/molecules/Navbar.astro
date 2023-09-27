@@ -3,6 +3,30 @@ import { Image } from "astro:assets";
 import Text from "../atoms/Text.astro";
 import logo from "../../assets/shared/desktop/logo.svg";
 import cartIcon from "../../assets/shared/desktop/icon-cart.svg";
+import Modal from "../molecules/Modal.astro";
+import Button from "../atoms/Button.astro";
+import Input from "../atoms/Input.astro";
+const openCartDropdown = false;
+const cartItems = [
+  {
+    name: "XX59",
+    image:
+      "/assets/product-xx59-headphones/desktop/image-category-page-preview.jpg",
+    price: "899",
+  },
+  {
+    name: "XX99 MK II",
+    image:
+      "/assets/product-xx99-mark-one-headphones/desktop/image-category-page-preview.jpg",
+    price: "2,999",
+  },
+  {
+    name: "YX1",
+    image:
+      "/assets/product-yx1-earphones/desktop/image-category-page-preview.jpg",
+    price: "599",
+  },
+];
 ---
 
 <nav class="top-nav">
@@ -17,14 +41,66 @@ import cartIcon from "../../assets/shared/desktop/icon-cart.svg";
 
   <Image src={cartIcon} alt="logo" />
 </nav>
+{
+  openCartDropdown && (
+    <Modal>
+      <div class="cart-wrapper">
+        <div class="flex justify-between items-center mb-6">
+          <Text type="h6">CART (3)</Text>
+          <Button>Remove all</Button>
+        </div>
+
+        {cartItems.map((item) => (
+          <div class="flex justify-between items-center mt-4 mb-4">
+            <div class="flex gap-4 items-center">
+              <img
+                class="w-[55px]"
+                src={item.image}
+                alt={item.name}
+                style={{ borderRadius: "8px" }}
+              />
+              <div class="flex flex-col gap-0.5">
+                <Text type="subTitle">{item.name}</Text>
+                <Text type="body">$ {item.price}</Text>
+              </div>
+            </div>
+
+            <Input type="counter-sm" value={1} />
+          </div>
+        ))}
+
+        <div class="flex justify-between items-center mt-6 mb-6">
+          <Text type="h6">TOTAL</Text>
+          <Text type="h6">$ 5,396</Text>
+        </div>
+
+        <Button width="100%" type="primary">
+          CHECKOUT
+        </Button>
+      </div>
+    </Modal>
+  )
+}
 
 <style>
+  .cart-wrapper {
+    width: 377px;
+    border-radius: 8px;
+    background: #fff;
+    position: absolute;
+    top: 90px;
+    right: 150px;
+    padding: 16px;
+  }
+
   .top-nav {
     color: var(--white);
     padding: 24px 0;
     display: flex;
     justify-content: space-between;
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+    z-index: 3;
   }
   .nav-links {
     text-transform: uppercase;

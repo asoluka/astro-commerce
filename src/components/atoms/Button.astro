@@ -1,5 +1,5 @@
 ---
-const { type, className } = Astro.props;
+const { type, className, width } = Astro.props;
 ---
 
 {
@@ -18,7 +18,7 @@ const { type, className } = Astro.props;
   )
 }
 
-<style>
+<style define:vars={{ width: width || "10rem" }}>
   button {
     outline: none;
     border: none;
@@ -42,20 +42,20 @@ const { type, className } = Astro.props;
   }
 
   .primary {
-    width: 10rem;
+    width: var(--width);
     height: 3rem;
     background: var(--primary);
     color: var(--white);
   }
   .secondary {
-    width: 10rem;
+    width: var(--width);
     height: 3rem;
     flex-shrink: 0;
     border: 1px solid var(--night);
     color: var(--night);
   }
   .secondary-inverted {
-    width: 10rem;
+    width: var(--width);
     height: 3rem;
     flex-shrink: 0;
     border: 1px solid var(--night);

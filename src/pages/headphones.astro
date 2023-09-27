@@ -44,7 +44,9 @@ import { data } from "../utils/dummyData.js";
                 </Text>
               </div>
               <div class="flex justify-center lg:justify-start">
-                <Button type="primary">SEE PRODUCT</Button>
+                <a href={`products/${item.slug}`}>
+                  <Button type="primary">SEE PRODUCT</Button>
+                </a>
               </div>
             </div>
             <div>
