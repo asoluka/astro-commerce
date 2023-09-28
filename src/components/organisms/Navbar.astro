@@ -6,7 +6,7 @@ import cartIcon from "../../../public/assets/shared/desktop/icon-cart.svg";
 import Modal from "../molecules/Modal.astro";
 import Button from "../atoms/Button.astro";
 import Input from "../atoms/Input.astro";
-import NavLinks from "./NavLinks.astro";
+import NavLinks from "../molecules/NavLinks.astro";
 const openCartDropdown = false;
 const cartItems = [
   {
@@ -38,7 +38,9 @@ const cartItems = [
   <Image id="cart-icon" src={cartIcon} alt="logo" />
 </nav>
 
-<NavLinks className="lg:hidden flex justify-center flex-wrap text-white pt-6" />
+<NavLinks
+  className="lg:hidden flex justify-center flex-wrap text-white pt-6 pb-6"
+/>
 
 <Modal id="cart">
   <div class="cart-wrapper">
