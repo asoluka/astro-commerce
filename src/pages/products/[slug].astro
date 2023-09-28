@@ -26,7 +26,7 @@ const { name, description, price, features, image, includes, gallery, others } =
 <Layout title="Earphones">
   <Hero />
 
-  <div class="container mt-8 mb-8">
+  <div class="container back-btn">
     <Button onClick="history.back()" color="rgba(0,0,0,.7)">Go back</Button>
   </div>
 </Layout>
@@ -130,6 +130,10 @@ const { name, description, price, features, image, includes, gallery, others } =
 <Footer />
 
 <style>
+  .back-btn {
+    margin-top: 34px;
+    margin-bottom: 34px;
+  }
   .hero {
     height: 250px;
   }

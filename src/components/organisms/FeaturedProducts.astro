@@ -7,7 +7,7 @@ import FeaturedProductCard from "../molecules/FeaturedProductCard.astro";
 ---
 
 <div
-  class="container flex flex-wrap justify-center xl:justify-between gap-8 mt-8 mb-12"
+  class="container flex flex-wrap justify-center xl:justify-between gap-8 featured-products-section"
 >
   <FeaturedProductCard
     image={headphone}
@@ -30,3 +30,10 @@ import FeaturedProductCard from "../molecules/FeaturedProductCard.astro";
     <Button>Shop</Button>
   </FeaturedProductCard>
 </div>
+
+<style>
+  .featured-products-section {
+    margin-top: 36px;
+    margin-bottom: 24px;
+  }
+</style>
