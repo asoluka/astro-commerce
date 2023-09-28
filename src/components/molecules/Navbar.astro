@@ -6,6 +6,7 @@ import cartIcon from "../../../public/assets/shared/desktop/icon-cart.svg";
 import Modal from "../molecules/Modal.astro";
 import Button from "../atoms/Button.astro";
 import Input from "../atoms/Input.astro";
+import NavLinks from "./NavLinks.astro";
 const openCartDropdown = false;
 const cartItems = [
   {
@@ -32,15 +33,13 @@ const cartItems = [
 <nav class="top-nav">
   <a href="/"><Image src={logo} alt="logo" /></a>
 
-  <div class="hidden lg:flex nav-links">
-    <a href="/"><Text type="subTitle">Home</Text></a>
-    <a href="/headphones"><Text type="subTitle">Headphones</Text></a>
-    <a href="/speakers"><Text type="subTitle">Speakers</Text></a>
-    <a href="/earphones"><Text type="subTitle">Earphones</Text></a>
-  </div>
+  <NavLinks className="hidden lg:flex" />
 
   <Image id="cart-icon" src={cartIcon} alt="logo" />
 </nav>
+
+<NavLinks className="lg:hidden flex justify-center flex-wrap text-white pt-6" />
+
 <Modal id="cart">
   <div class="cart-wrapper">
     <div class="flex justify-between items-center mb-6">
@@ -98,10 +97,6 @@ const cartItems = [
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     position: relative;
     z-index: 3;
-  }
-  .nav-links {
-    text-transform: uppercase;
-    gap: 34px;
   }
 
   @media only screen and (min-width: 768px) {

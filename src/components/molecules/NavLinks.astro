@@ -1,0 +1,18 @@
+---
+import Text from "../atoms/Text.astro";
+const { className } = Astro.props;
+---
+
+<div class={`nav-links ${className}`}>
+  <a href="/"><Text type="subTitle">Home</Text></a>
+  <a href="/headphones"><Text type="subTitle">Headphones</Text></a>
+  <a href="/speakers"><Text type="subTitle">Speakers</Text></a>
+  <a href="/earphones"><Text type="subTitle">Earphones</Text></a>
+</div>
+
+<style>
+  .nav-links {
+    text-transform: uppercase;
+    gap: 34px;
+  }
+</style>
