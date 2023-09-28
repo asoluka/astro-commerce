@@ -39,48 +39,45 @@ const cartItems = [
     <a href="/earphones"><Text type="subTitle">Earphones</Text></a>
   </div>
 
-  <Image src={cartIcon} alt="logo" />
+  <Image id="cart-icon" src={cartIcon} alt="logo" />
 </nav>
-{
-  openCartDropdown && (
-    <Modal>
-      <div class="cart-wrapper">
-        <div class="flex justify-between items-center mb-6">
-          <Text type="h6">CART (3)</Text>
-          <Button>Remove all</Button>
-        </div>
+<Modal id="cart">
+  <div class="cart-wrapper">
+    <div class="flex justify-between items-center mb-6">
+      <Text type="h6">CART (3)</Text>
+      <Button>Remove all</Button>
+    </div>
 
-        {cartItems.map((item) => (
-          <div class="flex justify-between items-center mt-4 mb-4">
-            <div class="flex gap-4 items-center">
-              <img
-                class="w-[55px]"
-                src={item.image}
-                alt={item.name}
-                style={{ borderRadius: "8px" }}
-              />
-              <div class="flex flex-col gap-0.5">
-                <Text type="subTitle">{item.name}</Text>
-                <Text type="body">$ {item.price}</Text>
-              </div>
+    {
+      cartItems.map((item) => (
+        <div class="flex justify-between items-center mt-4 mb-4">
+          <div class="flex gap-4 items-center">
+            <img
+              class="w-[55px]"
+              src={item.image}
+              alt={item.name}
+              style={{ borderRadius: "8px" }}
+            />
+            <div class="flex flex-col gap-0.5">
+              <Text type="subTitle">{item.name}</Text>
+              <Text type="body">$ {item.price}</Text>
             </div>
-
-            <Input type="counter-sm" value={1} />
           </div>
-        ))}
 
-        <div class="flex justify-between items-center mt-6 mb-6">
-          <Text type="h6">TOTAL</Text>
-          <Text type="h6">$ 5,396</Text>
+          <Input type="counter-sm" value={1} />
         </div>
+      ))
+    }
 
-        <Button width="100%" type="primary">
-          CHECKOUT
-        </Button>
-      </div>
-    </Modal>
-  )
-}
+    <div class="flex justify-between items-center mt-6 mb-6">
+      <Text type="h6">TOTAL</Text>
+      <Text type="h6">$ 5,396</Text>
+    </div>
+
+    <a href="/checkout"><Button width="100%" type="primary">CHECKOUT</Button></a
+    >
+  </div>
+</Modal>
 
 <style>
   .cart-wrapper {
@@ -107,3 +104,17 @@ const cartItems = [
     gap: 34px;
   }
 </style>
+
+<script>
+  const cartIcon = document.getElementById("cart-icon");
+  const cartModal = document.getElementById("cart");
+  cartModal.style.display = "none";
+
+  cartIcon.addEventListener("click", (e) => {
+    if (cartModal.style.display === "none") {
+      cartModal.style.display = "block";
+    } else {
+      cartModal.style.display = "none";
+    }
+  });
+</script>

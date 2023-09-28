@@ -150,56 +150,44 @@ const cartItems = [
       <Text type="h6">$ 5,446</Text>
     </div>
 
-    <Button width="100%" type="primary">CHECKOUT</Button>
+    <Button id="checkout" width="100%" type="primary">CHECKOUT</Button>
   </div>
 </div>
 
-{
-  openSuccessModal && (
-    <Modal>
-      <div class="success-modal">
+<Modal id="success-modal">
+  <div class="success-modal">
+    <img
+      class="w-[70px]"
+      src="/assets/exported/success-check.png"
+      alt="success-check"
+    />
+    <Text type="h5" className="w-[250px]">THANK YOU FOR YOUR ORDER</Text>
+    <Text type="body">You will receive an email confirmation shortly.</Text>
+    <div class="flex w-full">
+      <div class="success-summary flex w-1/2 gap-4 p-4 bg-grey">
         <img
-          class="w-[70px]"
-          src="/assets/exported/success-check.png"
-          alt="success-check"
+          class="w-[55px]"
+          src="/assets/product-xx59-headphones/desktop/image-category-page-preview.jpg"
+          alt="XX59"
+          style={{ borderRadius: "8px" }}
         />
-        <Text type="h5" className="w-[250px]">
-          THANK YOU FOR YOUR ORDER
-        </Text>
-        <Text type="body">You will receive an email confirmation shortly.</Text>
-        <div class="flex w-full">
-          <div class="success-summary flex w-1/2 gap-4 p-4 bg-grey">
-            <img
-              class="w-[55px]"
-              src="/assets/product-xx59-headphones/desktop/image-category-page-preview.jpg"
-              alt="XX59"
-              style={{ borderRadius: "8px" }}
-            />
-            <div class="flex flex-col gap-0.5">
-              <Text type="subTitle">XX59 MKII</Text>
-              <Text type="body">$ 2,999</Text>
-            </div>
-            <Text type="subTitle">x1</Text>
-          </div>
-          <div class="success-summary w-1/2 p-4 bg-black">
-            <Text type="subTitle" color="#f1f1f1">
-              GRAND TOTAL
-            </Text>
-            <Text type="body" color={colors.white}>
-              $ 5,446
-            </Text>
-          </div>
+        <div class="flex flex-col gap-0.5">
+          <Text type="subTitle">XX59 MKII</Text>
+          <Text type="body">$ 2,999</Text>
         </div>
-
-        <a href="/">
-          <Button width="100%" type="primary">
-            BACK TO HOME
-          </Button>
-        </a>
+        <Text type="subTitle">x1</Text>
       </div>
-    </Modal>
-  )
-}
+      <div class="success-summary w-1/2 p-4 bg-black">
+        <Text type="subTitle" color="#f1f1f1">GRAND TOTAL</Text>
+        <Text type="body" color={colors.white}>$ 5,446</Text>
+      </div>
+    </div>
+
+    <a href="/">
+      <Button width="100%" type="primary">BACK TO HOME</Button>
+    </a>
+  </div>
+</Modal>
 
 <!-- Footer -->
 <Footer />
@@ -259,3 +247,13 @@ const cartItems = [
     }
   }
 </style>
+
+<script>
+  const successModal = document.getElementById("success-modal");
+  const checkoutBtn = document.getElementById("checkout");
+  successModal.style.display = "none";
+
+  checkoutBtn.addEventListener("click", () => {
+    successModal.style.display = "block";
+  });
+</script>

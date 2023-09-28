@@ -1,4 +1,8 @@
-<div class="modal">
+---
+const { id } = Astro.props;
+---
+
+<div class="modal" id={id}>
   <slot />
 </div>
 
