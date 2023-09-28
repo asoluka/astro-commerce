@@ -31,7 +31,7 @@ const { name, description, price, features, image, includes, gallery, others } =
   </div>
 </Layout>
 
-<div class="product-item-row container mt-16 mb-36">
+<div class="product-item-row container">
   <div class="w-full flex flex-col justify-center gap-4">
     <div class="w-full lg:w-[396px]">
       <Text type="body" color={colors.primary}>NEW PRODUCT</Text>
@@ -61,7 +61,7 @@ const { name, description, price, features, image, includes, gallery, others } =
   </div>
 </div>
 
-<div class="container features mt-16 mb-36">
+<div class="container features">
   <div class="w-full flex flex-col justify-center gap-4">
     <div class="w-full lg:w-[396px]">
       <Text type="h5">FEATURES</Text>
@@ -94,7 +94,7 @@ const { name, description, price, features, image, includes, gallery, others } =
   </div>
 </div>
 
-<div class="container gallery mt-16 mb-36">
+<div class="container gallery">
   <div style={{ backgroundImage: `url(${gallery.first.desktop})` }}></div>
   <div style={{ backgroundImage: `url(${gallery.second.desktop})` }}></div>
   <div style={{ backgroundImage: `url(${gallery.third.desktop})` }}></div>
@@ -130,6 +130,11 @@ const { name, description, price, features, image, includes, gallery, others } =
 <Footer />
 
 <style>
+  .features,
+  .gallery {
+    margin-top: 100px;
+    margin-bottom: 100px;
+  }
   .back-btn {
     margin-top: 34px;
     margin-bottom: 34px;
