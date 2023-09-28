@@ -15,78 +15,79 @@ const { title } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+
+    <!-- <ViewTransitions /> -->
   </head>
   <body>
     <slot />
+    <style is:global>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --primary: #d87d4a;
+        --dark: #101010;
+        --evening: #0e0e0e;
+        --night: #000;
+        --gray: #f1f1f1;
+        --off-white: #fafafa;
+        --white: #fff;
+        --dim-white: rgb(255, 255, 255, 0.5);
+        --primary-light: #fbaf85;
+      }
+
+      .container {
+        width: 100%;
+        margin: auto;
+        padding: 0 16px;
+      }
+
+      @media only screen and (min-width: 960px) {
+        .container {
+          width: 1440px;
+        }
+      }
+      code {
+        font-family:
+          Menlo,
+          Monaco,
+          Lucida Console,
+          Liberation Mono,
+          DejaVu Sans Mono,
+          Bitstream Vera Sans Mono,
+          Courier New,
+          monospace;
+      }
+
+      /* Store items display */
+      .product-item-row {
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 34px;
+      }
+      .product-item-row > div {
+        width: 100%;
+      }
+      @media only screen and (min-width: 1024px) {
+        .product-item-row > div {
+          width: 40%;
+        }
+
+        .product-item-row {
+          display: flex;
+          align-items: center;
+          flex-direction: row;
+          justify-content: center;
+          gap: 100px;
+        }
+
+        .product-item-row:nth-child(even) {
+          flex-direction: row-reverse;
+        }
+      }
+    </style>
   </body>
 </html>
-
-<style is:global>
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  :root {
-    --primary: #d87d4a;
-    --dark: #101010;
-    --evening: #0e0e0e;
-    --night: #000;
-    --gray: #f1f1f1;
-    --off-white: #fafafa;
-    --white: #fff;
-    --dim-white: rgb(255, 255, 255, 0.5);
-    --primary-light: #fbaf85;
-  }
-
-  .container {
-    width: 100%;
-    margin: auto;
-    padding: 0 16px;
-  }
-
-  @media only screen and (min-width: 960px) {
-    .container {
-      width: 1440px;
-    }
-  }
-  code {
-    font-family:
-      Menlo,
-      Monaco,
-      Lucida Console,
-      Liberation Mono,
-      DejaVu Sans Mono,
-      Bitstream Vera Sans Mono,
-      Courier New,
-      monospace;
-  }
-
-  /* Store items display */
-  .product-item-row {
-    display: flex;
-    flex-direction: column-reverse;
-    gap: 34px;
-  }
-  .product-item-row > div {
-    width: 100%;
-  }
-  @media only screen and (min-width: 1024px) {
-    .product-item-row > div {
-      width: 40%;
-    }
-
-    .product-item-row {
-      display: flex;
-      align-items: center;
-      flex-direction: row;
-      justify-content: center;
-      gap: 100px;
-    }
-
-    .product-item-row:nth-child(even) {
-      flex-direction: row-reverse;
-    }
-  }
-</style>

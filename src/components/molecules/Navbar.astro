@@ -81,12 +81,12 @@ const cartItems = [
 
 <style>
   .cart-wrapper {
-    width: 377px;
+    width: 100%;
     border-radius: 8px;
     background: #fff;
     position: absolute;
     top: 90px;
-    right: 150px;
+    right: 0;
     padding: 16px;
   }
 
@@ -103,12 +103,18 @@ const cartItems = [
     text-transform: uppercase;
     gap: 34px;
   }
+
+  @media only screen and (min-width: 768px) {
+    .cart-wrapper {
+      width: 377px;
+      right: 150px;
+    }
+  }
 </style>
 
 <script>
   const cartIcon = document.getElementById("cart-icon");
   const cartModal = document.getElementById("cart");
-  cartModal.style.display = "none";
 
   cartIcon.addEventListener("click", (e) => {
     if (cartModal.style.display === "none") {
