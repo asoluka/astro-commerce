@@ -45,11 +45,20 @@ import instagram from "../../../public/assets/shared/desktop/icon-instagram.svg"
       </Text>
     </div>
     <div
-      class="w-full flex justify-center lg:justify-end gap-6 social-icons items-center mt-8 lg:mt-0"
+      class="w-full flex flex-col items-center lg:items-end gap-6 social-icons justify-center mt-8 lg:mt-0"
     >
-      <Image src={facebook} alt="facebook-icon" />
-      <Image src={twitter} alt="twitter-icon" />
-      <Image src={instagram} alt="instagram-icon" />
+      <div class="flex gap-6">
+        <Image src={facebook} alt="facebook-icon" />
+        <Image src={twitter} alt="twitter-icon" />
+        <Image src={instagram} alt="instagram-icon" />
+      </div>
+      <div>
+        <Text textAlign="center">
+          Built with ❤️ by <a
+            href="https://www.linkedin.com/in/austin-asoluka-415326155/"
+            >Austin Asoluka</a>
+        </Text>
+      </div>
     </div>
   </div>
 </footer>
