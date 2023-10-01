@@ -1,10 +1,8 @@
-# Astro Starter Kit: Basics
+# Astro-commerce
 
-```sh
-npm create astro@latest -- --template basics
-```
+An ecommerce template for small bussiness. Although this template showcases a store for audio devices, it could be used showcase any type of product.
 
-[![Open in vercel](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
+[View live site here](https://astro-commerce-eight.vercel.app/)
 
 ## 🚀 Project Structure
 
