@@ -9,6 +9,7 @@ npm create astro@latest -- --template basics
 ## 🚀 Project Structure
 
 The project follows the atomic design structure [Learn more](https://bradfrost.com/blog/post/atomic-web-design/)
+
 Inside of this project, you'll see the following folders and files. They make up the main parts of the project.
 
 ```text
@@ -19,6 +20,9 @@ Inside of this project, you'll see the following folders and files. They make up
 │   └── favicon.svg
 ├── src/
 │   ├── components/
+│   │   └── atoms
+│   │   ├── molecules
+│   │   ├── organisms
 │   ├── design-system/
 │   ├── layouts/
 │   ├── pages/
